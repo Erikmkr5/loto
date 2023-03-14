@@ -1,5 +1,10 @@
-// const bodyParser = require('body-parser')
-// const express = require('express')
+import {GLOBALS} from '../misc/cnst.js';
+
+// const {APP} = require("../misc/cnst");
+// const {GLOBALS} = require('../misc/cnst.js');
+
+const {APP} = GLOBALS;
+
 const player1 = {
     "name": "Tom",
     "surname": "Holland",
@@ -19,9 +24,9 @@ function getSimilarNumbers(arr1, arr2) {
 
     return similarNumbers;
 }
-class CreateLot {
+export class DrawsRoute {
     constructor(app = null){
-        this.app = app || global.app
+        this.app = app || global[APP];
         this.app.get('/lot', ( req, res ) => {
             console.log(req)
             res.send({test:false})
@@ -61,6 +66,5 @@ class CreateLot {
     //}
 }
 
-// const createLot = new CreateLot()
+// const createLot = new DrawsRoute()
 
-module.exports = CreateLot

@@ -1,8 +1,11 @@
+import {GLOBALS} from '../misc/cnst.js';
 
+const {APP} = GLOBALS;
 
-class TestRoutes {
+export class TestRoute {
     constructor(app = null){
-        this.app = app || global.app
+        this.app = app || global[APP];
+        
         this.app.get('/test', ( req, res ) => {
             console.log(req)
             res.send({test:true})
@@ -15,6 +18,3 @@ class TestRoutes {
     }
 }
 
-//const testRoutes = new TestRoutes()
-
-module.exports = TestRoutes
