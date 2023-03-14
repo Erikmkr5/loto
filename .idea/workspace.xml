@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0627ce21-dbf4-4961-a33e-ea60bb102fd4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/database/cnst.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/misc/cnst.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/misc/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/misc/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/models/cnst.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/database/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/database/connection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/lottery_draw.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/lottery_draw.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/CreateLot.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/drawsRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/testRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/testRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="0627ce21-dbf4-4961-a33e-ea60bb102fd4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +41,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ENKE" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="Z:\OWN\loto\client\client\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
