@@ -15,7 +15,11 @@ const {APP, DB, SERVER} = GLOBALS;
 const createApplication = () => {
   return new Script(
     () => console.log('Creating application...'),
-    () =>  global[APP] = express(),
+    () => {
+      global[APP] = express();
+      global[APP].use(express.json());
+      global[APP].use(express.urlencoded({extended: true}));
+    },
     () => console.log('Express application is created\n')
   ).run();
 };
