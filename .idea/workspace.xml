@@ -4,43 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0627ce21-dbf4-4961-a33e-ea60bb102fd4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/Components/SelectionGrid/SelectionGrid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/SelectionGrid/SelectionGrid.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/SelectionGrid/misc/cnst.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/SelectionGrid/misc/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/SelectionResults/SelectionResults.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/SelectionResults/SelectionResults.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/SimpleExamples/FunctionalCounter.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/SimpleExamples/Helpers.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/SimpleExamples/TestView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/SimpleExamples/Types.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Factories/DrawModel.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Factories/SelectionGridModel.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Factories/TestModel.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Factories/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Main/MainView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Services/ApiService.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Shared/enum.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Shared/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Shared/utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/react-app-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/misc/cnst.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/misc/cnst.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/misc/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/misc/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/drawsRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/drawsRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="0627ce21-dbf4-4961-a33e-ea60bb102fd4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +89,7 @@
       <workItem from="1678822890370" duration="4136000" />
       <workItem from="1678857969953" duration="34000" />
       <workItem from="1678860461390" duration="321000" />
-      <workItem from="1678860799232" duration="33687000" />
+      <workItem from="1678860799232" duration="34011000" />
     </task>
     <servers />
   </component>
