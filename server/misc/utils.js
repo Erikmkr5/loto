@@ -1,3 +1,5 @@
+import * as crypto from "crypto";
+
 export const noop = () => {};
 
 export const isNull = (d) => d === null;
@@ -13,6 +15,8 @@ export const isValue = (d) => !isNull(d) && !isUndefined(d);
 export const isFunction = (d) => typeof d === 'function';
 
 export const isPromise = (d) => isFunction(d?.then);
+
+export const asArray = (val) => Array.isArray(val) ? val : [val];
 
 export const asPromise = (d) => isPromise(d) ? d : new Promise((resolve) => resolve(d));
 
@@ -47,3 +51,5 @@ export const digOut = (..._args) => {
     return undefined;
   }
 };
+
+export const getUid = () => crypto.randomUUID();

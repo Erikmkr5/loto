@@ -1,0 +1,7 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.btn {
+    border-radius: 0!important;
+    margin: 1px;
+    display: flex!important;
+}

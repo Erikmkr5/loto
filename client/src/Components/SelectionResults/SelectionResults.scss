@@ -1,0 +1,41 @@
+.selection-results {
+  margin: 20px 0;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+
+  &__items {
+    flex: 1;
+    margin-right: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  &__controls {
+    flex: 1;
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  &__buttons-set {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  &__item,
+  &__button {
+    width: 19%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px;
+  }
+}
