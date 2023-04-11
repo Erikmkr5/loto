@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0627ce21-dbf4-4961-a33e-ea60bb102fd4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/Header/Header.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Header/Header.tsx" afterDir="false" />
+    <list default="true" id="0627ce21-dbf4-4961-a33e-ea60bb102fd4" name="Changes" comment="button input useState">
+      <change afterPath="$PROJECT_DIR$/client/src/Components/LoginForm/AuthForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Components/LoginForm/RegistrationForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/Factories/UserModel.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/SelectionGrid/misc/cnst.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/SelectionGrid/misc/cnst.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/SimpleExamples/TestView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/SimpleExamples/TestView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Main/MainView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Main/MainView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/misc/cnst.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/misc/cnst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Shared/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Shared/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +101,14 @@
       <workItem from="1679411380389" duration="35816000" />
       <workItem from="1680999630888" duration="3335000" />
     </task>
+    <task id="LOCAL-00001" summary="button input useState">
+      <created>1681233977436</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681233977437</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +124,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="button input useState" />
+    <option name="LAST_COMMIT_MESSAGE" value="button input useState" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

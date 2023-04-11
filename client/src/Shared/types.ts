@@ -21,3 +21,12 @@ export interface IDrawModel {
   values?: [];
   coincidences?: [];
 }
+
+export interface IUserModel {
+  _uid?: string;
+  name: string;
+  surname: string;
+  age: number;
+  email: string;
+  password?: string;
+}
