@@ -8,5 +8,5 @@ export const GLOBALS = {
     SERVER: 'SERVER'
 };
 
-export const DEFAULT_LIMIT = 99;
+export const DEFAULT_LIMIT = 90;
 export const DEFAULT_SELECTION_LIMIT = 10;
