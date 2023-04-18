@@ -7,8 +7,6 @@ export const AuthPage = () => {
     const text = 'AUTH PAGE'
     return(
         <div>
-            <Header title={text}/>
-
             <AuthForm/>
         </div>
 

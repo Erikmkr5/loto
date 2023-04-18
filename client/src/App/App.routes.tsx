@@ -1,4 +1,5 @@
 import { createBrowserRouter, generatePath } from 'react-router-dom';
+import { AuthPage } from '../Pages/AuthPage';
 
 export class AppRoutes {
 
@@ -13,7 +14,7 @@ export class AppRoutes {
     {
       name: 'anotherRoute',
       path: '/anotherRoute',
-      element: <h1>ANOTHER ROUTE</h1>
+      element: <AuthPage />,
     },
     {
       name: 'withParams',
@@ -35,9 +36,6 @@ export class AppRoutes {
   ];
 
   public goTo = (route: any = 'home', params: any = null): void => {
-
-    console.log(route);
-
     const path = this.routes.find(r => r.name === route)?.path;
     this.router.navigate(path ? generatePath(path, params) : '404');
   };

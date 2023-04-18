@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0627ce21-dbf4-4961-a33e-ea60bb102fd4" name="Changes" comment="authform and registrdorm">
-      <change afterPath="$PROJECT_DIR$/client/src/App/App.routes.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/App/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App/App.routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App/App.routes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Pages/AuthPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/AuthPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
