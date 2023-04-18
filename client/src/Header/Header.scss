@@ -1,9 +1,23 @@
 .header {
-  justify-content: space-between;
+  display: flex;
+  //justify-content: flex-start;
   //position: fixed;
   width: 100%;
   padding: 1em 8em;
-  background: #161a20;
-  box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.3);
+  background: #8b1149;
+  box-shadow: 0 5px 20px 5px rgba(217, 14, 14, 0.3);
   //z-index: 100000;
+}
+
+.header-components {
+  display: flex;
+  justify-content: space-between;
+}
+h1 {
+  display: flex;
+  justify-content: space-between;
+}
+a {
+  display: flex;
+  justify-content: space-between;
 }

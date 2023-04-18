@@ -2,14 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { MainView } from './Main/MainView';
+import { MainView } from './Pages/MainView';
+import SimpleRoutes from "./Routes/SimpleRoutes";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <MainView />
+    {/*<MainView />*/}
+    <SimpleRoutes/>
   </React.StrictMode>
 );
 

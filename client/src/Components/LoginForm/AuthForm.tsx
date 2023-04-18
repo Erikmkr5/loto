@@ -1,37 +1,65 @@
 import {inject, observer} from "mobx-react";
+import {useState} from "react";
+
 
 export const AuthForm = observer(
+
     (props) => {
-        const isDisabled = false;
-        return (
-            <div className={'auth-form'}>
 
-                <input
-                    className={'form-control'}
-                    type={"string"}
-                    disabled={isDisabled}
-                    placeholder={"Enter login"}
-                    onChange={ (event) => console.log(event) }
-                    // value={(event) => console.log(event)}
-                />
+            const isDisabled = false;
 
-                <input
-                    className={'form-control'}
-                    type={"password"}
-                    disabled={isDisabled}
-                    placeholder={"Enter password"}
-                    onChange={ (event) => console.log(event) }
-                    // value={(event) => console.log(event)}
-                />
+            // function handleForSumbit(event){
+            //     event.preventDefault()
+            //     if ( formState.login === '' || formState.password === ''){
+            //         alert('enter all data')
+            //
+            //     }
+            // }
+
+            const [ loginState, setLoginState] = useState('');
+            const handleInputChange = (event) => {
+                setLoginState(event.target.value);
+            };
 
 
-                <button
+            // const [formState, setFormState] = useState({
+            //         login: '',
+            //         password: '',
+            // });
 
-                />
-                {/*    проверка на заполнение всех полей и по клику отправка форм на сервер*/}
+                return (
+                    <div className={'auth-form'}>
+
+                        <input
+                            className={'form-control'}
+                            name={'login'}
+                            type={"string"}
+                            disabled={isDisabled}
+                            placeholder={"Enter login"}
+                            // onChange={ this.value => setLoginState }
+                            // value={formState.login}
+                        />
+
+                        <input
+                            className={'form-control'}
+                            name={'password'}
+                            type={"password"}
+                            disabled={isDisabled}
+                            placeholder={"Enter password"}
+                            // onChange={ (event) => console.log(event) }
+                            // value={formState.password}
+                            // value={(event) => console.log(event)}
+                        />
 
 
-            </div>
+                        <button
+                            // onClick={handleForSumbit}
+
+                        />
+                        {/*    проверка на заполнение всех полей и по клику отправка форм на сервер*/}
+
+
+                    </div>
+                )
+            }
         )
-    }
-)
