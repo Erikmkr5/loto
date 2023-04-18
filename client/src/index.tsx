@@ -4,6 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { MainView } from './Pages/MainView';
 import SimpleRoutes from "./Routes/SimpleRoutes";
+import { App } from './App/App';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +12,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     {/*<MainView />*/}
-    <SimpleRoutes/>
+    {/*<SimpleRoutes/>*/}
+    <App />
   </React.StrictMode>
 );
 

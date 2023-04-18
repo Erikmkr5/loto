@@ -24,32 +24,46 @@
 import React from 'react';
 import './Header.scss'
 import {ROUTES} from "../Shared/enum";
-import '../logo.png'
+import { Link } from 'react-router-dom';
+import { inject, observer } from 'mobx-react';
 
 
 interface HeaderProps {
     title: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({title}) => {
+export const Header = inject('appRoutes')(observer((props) => {
+    const {title, appRoutes} = props;
+
+    console.log(appRoutes);
+
     return (
         <nav>
-            <header onClick={() => window.location.href = '/'} className="header">
-                <img src="logo.png"/>
+            <header className="header">
+                {/*<img src="logo.png"/>*/}
+                <h3>LOGO</h3>
                 <h1>{title}</h1>
                 <div className={'header-components'}>
-                    <a href={''}>Main</a>
-                    <a href={ROUTES.ABOUT_PAGE}>About</a>
-                    <a href={ROUTES.AUTH_PAGE}>Authentication</a>
 
-                    {/*<a href={''}>Main</>*/}
-                    {/*<a href={ROUTES.ABOUT_PAGE}>About</a>*/}
-                    {/*<a href={ROUTES.AUTH_PAGE}>Authentication</a>*/}
+                    <button
+                      className={'btn btn-link'}
+                      onClick={() => appRoutes.goTo('home')}>HOME</button>
+
+                    <button
+                      className={'btn btn-link'}
+                      onClick={() => appRoutes.goTo('anotherRoute')}>ANOTHER ROUTE</button>
+
+                    <button
+                      className={'btn btn-link'}
+                      onClick={() => appRoutes.goTo('withParams', {someId: Math.floor(Math.random() * 100)})}>WITH PARAMS</button>
+
+                    {/*<Link to={'/'}>Main</Link>*/}
+                    {/*<Link to={'/anotherRoute'}>About</Link>*/}
 
 
                 </div>
             </header>
         </nav>
     );
-};
+}));
 
