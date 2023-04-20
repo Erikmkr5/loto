@@ -8,17 +8,22 @@ export const AuthForm = observer(
 
             const isDisabled = false;
 
-            // function handleForSumbit(event){
-            //     event.preventDefault()
-            //     if ( formState.login === '' || formState.password === ''){
-            //         alert('enter all data')
-            //
-            //     }
-            // }
+            function handleForSumbit(event){
+                event.preventDefault()
+                if ( loginState === '' || passwordState === ''){
+                    alert('enter all data')
+
+                }
+            }
 
             const [ loginState, setLoginState] = useState('');
             const handleInputChange = (event) => {
                 setLoginState(event.target.value);
+            };
+
+            const [ passwordState, setPasswordState] = useState('');
+            const handleInputPasswordChange = (event) => {
+                setPasswordState(event.target.value);
             };
 
 
@@ -29,14 +34,14 @@ export const AuthForm = observer(
 
                 return (
                     <div className={'auth-form'}>
-
+                        <h1>{loginState}</h1>
                         <input
                             className={'form-control'}
                             name={'login'}
                             type={"string"}
                             disabled={isDisabled}
                             placeholder={"Enter login"}
-                            // onChange={ this.value => setLoginState }
+                            onChange={ handleInputChange }
                             // value={formState.login}
                         />
 
@@ -46,14 +51,13 @@ export const AuthForm = observer(
                             type={"password"}
                             disabled={isDisabled}
                             placeholder={"Enter password"}
-                            // onChange={ (event) => console.log(event) }
-                            // value={formState.password}
+                            onChange={ handleInputPasswordChange }                            // value={formState.password}
                             // value={(event) => console.log(event)}
                         />
 
 
                         <button
-                            // onClick={handleForSumbit}
+                            onClick={handleForSumbit}
 
                         />
                         {/*    проверка на заполнение всех полей и по клику отправка форм на сервер*/}

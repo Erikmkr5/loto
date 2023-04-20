@@ -1,5 +1,6 @@
 import { createBrowserRouter, generatePath } from 'react-router-dom';
 import { AuthPage } from '../Pages/AuthPage';
+import {MainView} from "../Pages/MainView";
 
 export class AppRoutes {
 
@@ -9,11 +10,11 @@ export class AppRoutes {
     {
       name: 'home',
       path: '/',
-      element: <h1>HOME</h1>
+      element: <MainView />
     },
     {
-      name: 'anotherRoute',
-      path: '/anotherRoute',
+      name: 'authPage',
+      path: '/authPage',
       element: <AuthPage />,
     },
     {

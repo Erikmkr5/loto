@@ -86,7 +86,6 @@ export const MainView = () => {
     return (
         <div>
             <div className={'lotto-main'}>
-                <Header title={text}/>
                 <Provider {...Stores} {...Services}>
                     <div className={'container'}>
                         <div className={'row'}>
@@ -104,9 +103,7 @@ export const MainView = () => {
                         </div>
                     </div>
                 </Provider>
-
             </div>
-
         </div>
     )
 

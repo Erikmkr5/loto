@@ -47,7 +47,7 @@ export const TestView = inject(STORES.TEST_STORE)(observer(
         return (
             <div>
 
-                <h1>{}</h1>
+
                 <button
                     className={classList}
                     onClick={() => model.toggle()}
@@ -56,7 +56,7 @@ export const TestView = inject(STORES.TEST_STORE)(observer(
                     <span>{model.value ? 'OFF' : 'ON'}</span>
                 </button>
 
-                <input type="text" disabled={isDisabled} placeholder="Enter text" value={props.text}/>
+                <input type="text" disabled={isDisabled} placeholder="Enter text" />
 
             </div>
         )
