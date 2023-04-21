@@ -1,5 +1,5 @@
 import {IUserModel} from "../Shared/types";
-import {action, computed, makeObservable, observable} from "mobx";
+import { action, computed, makeAutoObservable, observable } from "mobx";
 
 export const UserModelFactory = (): IUserModel => {
     const model = observable({
@@ -48,7 +48,7 @@ export class AppUser {
 
 
     constructor() {
-        makeObservable(this)
+        makeAutoObservable(this)
     }
 
 }
