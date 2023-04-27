@@ -1,33 +1,14 @@
-// import React from 'react';
-// import './Header.scss'
-//
-//
-// interface HeaderProps {
-//     title: string;
-// }
-//
-// export const Header: React.FC<HeaderProps> = ({title}) => {
-//     return (
-//         <nav>
-//             <header onClick={() => window.location.href = '/'} className="header">
-//                 <h1>{title}</h1>
-//                 <div className={'header-components'}>
-//                     <a href={'/'}>main</a>
-//                     <a href={'/about'}>About</a>
-//                     <a href="/contact">Contact</a>
-//                 </div>
-//             </header>
-//         </nav>
-//     );
-// };
+
 
 import React from 'react';
 import './Header.scss'
-import {ROUTES, STORES} from "../Shared/enum";
-import { Link } from 'react-router-dom';
+// import {ROUTES, STORES} from "../Shared/enum";
+import {STORES} from "../Shared/enum";
 import { inject, observer } from 'mobx-react';
 import {asClassList} from "../Shared/utils";
 import { TestModelFactory } from "../Factories";
+import { BiKey } from "react-icons/bi";
+
 
 
 interface HeaderProps {
@@ -52,57 +33,75 @@ export const Header = inject(
 
 
     console.log(appRoutes);
-    console.log(props);
-    console.log(model);
+    // console.log(props);
+    // console.log(model);
 
 
     // const registered = {}
 
-    function NotRegistered(){
-        return(
-            <button
-                className={'btn btn-link'}
-                onClick={() => appRoutes.goTo('authPage')}>AUTH PAGE</button>
+    // function NotRegistered(){
+    //     return(
+    //         <button
+    //             className={'btn btn-link'}
+    //             onClick={() => appRoutes.goTo('authPage')}>AUTH</button>
+    //
+    //     )
+    // }
 
-        )
-    }
 
+    const classList = asClassList(['btn', UserStore.isAuthorized ? 'btn-success' : 'btn-danger']);
 
-    const classList = asClassList(['btn', model.value ? 'btn-success' : 'btn-danger']);
 
     return (
         <nav>
             <header className="header">
-                {/*<img src="logo.png"/>*/}
-                <h3 onClick={() => appRoutes.goTo('home')}>LOGO</h3>
-                <h1>{title}</h1>
-                <div className={'header-components'} id="my-object">
+                <img onClick={() => appRoutes.goTo('home')} src="https://cdn1.iconfinder.com/data/icons/lottery-5/64/lotto_lottery_raffle_draw_scratching-512.png" className='logo'/>
+                <h1 className='title'>{title}</h1>
+                <div className='header-components'>
 
-                    {/*{myObj.innerHTML}*/}
 
                     <button
                       className={'btn btn-link'}
-                      onClick={() => appRoutes.goTo('home')}>HOME</button>
+                      onClick={() => appRoutes.goTo('home')}
+                    >MAIN</button>
 
-                    {model.value ? NotRegistered() : ''}
-                    {/*<button*/}
-                    {/*  className={'btn btn-link'}*/}
-                    {/*  onClick={() => appRoutes.goTo('authPage')}>AUTH PAGE</button>*/}
+                    {/*{NotRegistered()}*/}
+                    <button
+                        className={'btn btn-link'}
+                        onClick={() => appRoutes.goTo('authPage')}
+                    >AUTH</button>
+
+
+                    <button
+                        className={'btn btn-link'}
+                        onClick={() => appRoutes.goTo('regPage')}
+                    >REG</button>
+
+                    {/*{UserStore.isAuthorized ? '' : NotRegistered() }*/}
+
+                    <button
+                        className={'btn btn-link'}
+                        onClick={() => appRoutes.goTo('statPage')}
+                    >STATS</button>
+
 
                     <button
                       className={'btn btn-link'}
                       onClick={() => appRoutes.goTo('withParams', {someId: Math.floor(Math.random() * 100)})}>WITH PARAMS</button>
 
-                    <button
-                        className={classList}
-                        // onClick={() => model.toggle()}
-                        onClick={() => UserStore.isAuthorized ? UserStore.resetData() : UserStore.setUserData(randomUser)}
+                    <div className='authBtn'>
+                        <button
+                            className={classList}
 
-                    >
-                        <span>{ UserStore.isAuthorized ? UserStore.name : 'Log in'}</span>
+                            onClick={() => UserStore.isAuthorized ? UserStore.resetData() : UserStore.setUserData(randomUser)}
+
+                        >
+                            <span>{ UserStore.isAuthorized ? 'Log out' : 'Log in'}</span>
+                        </button>
+                        {/*<BiKey className='key'/>*/}
+                    </div>
 
 
-                    </button>
 
 
 

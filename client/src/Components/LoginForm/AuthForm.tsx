@@ -1,17 +1,23 @@
 import {inject, observer} from "mobx-react";
 import {useState} from "react";
+import './LoginForm.scss';
+import {STORES} from "../../Shared/enum";
 
 
-export const AuthForm = observer(
+export const AuthForm = inject(
+    'appRoutes'
+)(observer(
 
     (props) => {
 
+            const {appRoutes} = props;
             const isDisabled = false;
 
             function handleForSumbit(event){
                 event.preventDefault()
                 if ( loginState === '' || passwordState === ''){
                     alert('enter all data')
+
 
                 }
             }
@@ -27,18 +33,16 @@ export const AuthForm = observer(
             };
 
 
-            // const [formState, setFormState] = useState({
-            //         login: '',
-            //         password: '',
-            // });
+
 
                 return (
+
                     <div className={'auth-form'}>
-                        <h1>{loginState}</h1>
+
                         <input
                             className={'form-control'}
+                            type={"email"}
                             name={'login'}
-                            type={"string"}
                             disabled={isDisabled}
                             placeholder={"Enter login"}
                             onChange={ handleInputChange }
@@ -47,8 +51,8 @@ export const AuthForm = observer(
 
                         <input
                             className={'form-control'}
-                            name={'password'}
                             type={"password"}
+                            name={'password'}
                             disabled={isDisabled}
                             placeholder={"Enter password"}
                             onChange={ handleInputPasswordChange }                            // value={formState.password}
@@ -57,13 +61,20 @@ export const AuthForm = observer(
 
 
                         <button
-                            onClick={handleForSumbit}
-
-                        />
+                            className='authSumbitBtn'
+                            onClick={handleForSumbit}                        >log in</button>
                         {/*    проверка на заполнение всех полей и по клику отправка форм на сервер*/}
+
+                        <button
+                            className='btn btn-link dont-have-account'
+                            onClick={() => appRoutes.goTo('regPage')}
+                        >I don't have an account.
+
+                        </button>
 
 
                     </div>
                 )
             }
         )
+)

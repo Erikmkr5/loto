@@ -18,7 +18,7 @@ const Stores = {
 export const App = observer(() => {
 
   return <Provider {...Stores} {...services}>
-    <Header title={'HELLO WORLD'} />
+    <Header title={'LOTTO'} />
     <RouterProvider router={services.appRoutes.router} />
   </Provider>;
 });

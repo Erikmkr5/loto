@@ -2,6 +2,11 @@ import {DEFAULT_LIMIT, DEFAULT_SELECTION_LIMIT, GLOBALS} from '../misc/cnst.js';
 import {asArray, getUid} from '../misc/utils.js';
 import {Script} from '../misc/script.js';
 
+function arrSort(arr){
+  arr.sort(function (a,b){return a-b});
+  return arr;
+}
+
 export class DrawsRoute {
 
   draws = new Map();
@@ -17,11 +22,24 @@ export class DrawsRoute {
         date: new Date().getTime()
       };
 
-      while (draw.values.size < selectionLimit) {
-        draw.values.add(Math.floor(Math.random() * (limit + 1)));
+      let c= new Set()
+
+      while (c.size < selectionLimit){
+        c.add(Math.floor(Math.random() * (limit) + 1))
       }
 
+      c = [...c]
+
+      arrSort(c)
+
+      while (draw.values.size < selectionLimit) {
+        draw.values.add(c[draw.values.size]);
+      }
       console.log(draw.values);
+
+
+
+
 
       this.draws.set(draw.uid, draw);
 

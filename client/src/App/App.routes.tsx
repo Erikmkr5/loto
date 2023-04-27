@@ -1,6 +1,8 @@
 import { createBrowserRouter, generatePath } from 'react-router-dom';
 import { AuthPage } from '../Pages/AuthPage';
 import {MainView} from "../Pages/MainView";
+import {RegPage} from "../Pages/RegPage";
+import {StatPage} from "../Pages/StatPage";
 
 export class AppRoutes {
 
@@ -16,6 +18,16 @@ export class AppRoutes {
       name: 'authPage',
       path: '/authPage',
       element: <AuthPage />,
+    },
+    {
+      name: 'regPage',
+      path: '/regPage',
+      element: <RegPage />,
+    },
+    {
+      name: 'statPage',
+      path: '/statPage',
+      element: <StatPage />,
     },
     {
       name: 'withParams',

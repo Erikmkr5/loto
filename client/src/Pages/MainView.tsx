@@ -61,7 +61,6 @@
 import {Provider} from 'mobx-react';
 import {SelectionGrid, SelectionResults} from '../Components';
 import {TestView} from '../Components/SimpleExamples/TestView';
-import {Header} from '../Header/Header'
 import {SERVICES, STORES} from '../Shared/enum';
 import {SelectionGridModelFactory, TestModelFactory, DrawModelsFactory} from '../Factories';
 import {ApiService} from '../Services/ApiService';
