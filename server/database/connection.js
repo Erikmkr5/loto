@@ -1,12 +1,13 @@
 import mongoose from 'mongoose';
 import {ENV_VARIABLES} from '../misc/cnst.js';
-import {IS_CONNECTED} from './cnst.js';
+import {DB_SEARCH_MODE, IS_CONNECTED} from './cnst.js';
 import {asPromise} from '../misc/utils.js';
 import {Script} from '../misc/script.js';
 import {createDrawsCollection} from '../models/lottery_draw.js';
 import {createUsersCollection} from '../models/users.js';
 
 const {DB_HOST, DB_PORT, DB_NAME} = ENV_VARIABLES;
+const {FIND_MANY, FIND_ONE} = DB_SEARCH_MODE;
 
 export class DbConnection {
 
@@ -29,11 +30,21 @@ export class DbConnection {
   };
 
   create = (modelName, data) => {
-
-
+    return new Script(
+      () => this.getModel(modelName),
+      Model => {
+        console.log(Model);
+        return new Model(data).save()
+      },
+    ).run();
   };
 
-  read = () => {};
+  read = (modelName, filter, getMany = false) => {
+    return new Script(
+      () => this.getModel(modelName),
+      Model => Model[getMany ? FIND_MANY : FIND_ONE](filter)
+    ).run();
+  };
 
   update = () => {};
 
