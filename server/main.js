@@ -6,6 +6,7 @@ import {Script} from './misc/script.js';
 import {DbConnection} from './database/connection.js';
 import {DrawsRoute} from './routes/drawsRoute.js';
 import {TestRoute} from './routes/testRoutes.js';
+import {UsersRoute} from './routes/usersRoute.js';
 import {createDrawsCollection} from './models/lottery_draw.js';
 import {createUsersCollection} from './models/users.js';
 
@@ -46,6 +47,7 @@ const configureRoutes = () => {
     () => console.log('Configuring routes...'),
     new TestRoute(),
     new DrawsRoute(),
+    new UsersRoute(),
     () => console.log('Routes configured successfully\n')
   ).run();
 };

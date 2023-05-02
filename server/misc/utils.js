@@ -52,4 +52,9 @@ export const digOut = (..._args) => {
   }
 };
 
+export const handleError = (err, res) => {
+  console.log(err);
+  res.status(err.status || 500).send({statusText: digOut(err, 'statusText') || digOut(err, 'text') || err});
+};
+
 export const getUid = () => crypto.randomUUID();

@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0627ce21-dbf4-4961-a33e-ea60bb102fd4" name="Changes" comment="Header and routes">
-      <change afterPath="$PROJECT_DIR$/client/src/Components/LoginForm/LoginForm.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Components/Stats/StatExample.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Pages/StatPage.tsx" afterDir="false" />
+    <list default="true" id="0627ce21-dbf4-4961-a33e-ea60bb102fd4" name="Changes" comment="authform and registrdorm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App/App.routes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App/App.routes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/LoginForm/AuthForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/LoginForm/AuthForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/LoginForm/RegistrationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/LoginForm/RegForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Factories/UserModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Factories/UserModel.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Header/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Header/Header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Pages/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/RegPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Pages/AuthPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/AuthPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Pages/MainView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/MainView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Routes/SimpleRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Routes/SimpleRoutes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Shared/enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Shared/enum.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/drawsRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/drawsRoute.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/database/cnst.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/database/cnst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/database/connection.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/database/connection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/misc/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/misc/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/usersRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/usersRoute.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +53,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "git-widget-placeholder": "routing",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "ts.external.directory.path": "C:\\Users\\mkrtc\\Documents\\GitHub\\loto\\client\\node_modules\\typescript\\lib"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ENKE" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Z:\OWN\loto\client\src\Shared" />
@@ -109,6 +95,7 @@
       <workItem from="1680999630888" duration="3335000" />
       <workItem from="1681399440221" duration="10691000" />
       <workItem from="1681817399441" duration="15884000" />
+      <workItem from="1683038007157" duration="2843000" />
     </task>
     <task id="LOCAL-00001" summary="button input useState">
       <created>1681233977436</created>
@@ -154,6 +141,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="button input useState" />
@@ -167,7 +155,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/Components/SelectionGrid/SelectionGrid.tsx</url>
           <line>48</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
