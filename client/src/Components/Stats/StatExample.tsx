@@ -160,11 +160,11 @@ export const StatExample = inject(
     for ( let i = 0; i < yValues.length; i++ ) {
         for ( let j = 0; j < xValues.length; j++ ) {
             const currentValue = zValues[i][j];
-            if (currentValue != 0.0) {
-                var textColor = 'white';
-            }else{
-                var textColor = 'black';
-            }
+            // if (currentValue != 0.0) {
+            //     const textColor = 'white';
+            // }else{
+            //     const textColor = 'black';
+            // }
             const result = {
                 xref: 'x1',
                 yref: 'y1',
