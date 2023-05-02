@@ -15,21 +15,21 @@ export const AuthForm = inject(
 
             function handleForSumbit(event){
                 event.preventDefault()
-                if ( loginState === '' || passwordState === ''){
+                if ( login === '' || password === ''){
                     alert('enter all data')
 
 
                 }
             }
 
-            const [ loginState, setLoginState] = useState('');
+            const [ login, setLogin] = useState('');
             const handleInputChange = (event) => {
-                setLoginState(event.target.value);
+                setLogin(event.target.value);
             };
 
-            const [ passwordState, setPasswordState] = useState('');
+            const [ password, setPassword] = useState('');
             const handleInputPasswordChange = (event) => {
-                setPasswordState(event.target.value);
+                setPassword(event.target.value);
             };
 
 
@@ -46,7 +46,7 @@ export const AuthForm = inject(
                             disabled={isDisabled}
                             placeholder={"Enter login"}
                             onChange={ handleInputChange }
-                            // value={formState.login}
+                            value={login}
                         />
 
                         <input

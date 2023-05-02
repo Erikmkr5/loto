@@ -65,6 +65,7 @@ import {SERVICES, STORES} from '../Shared/enum';
 import {SelectionGridModelFactory, TestModelFactory, DrawModelsFactory} from '../Factories';
 import {ApiService} from '../Services/ApiService';
 import {useEffect, useState} from "react";
+import {TimerExample} from "../Components/Timer/TimerExample";
 
 const Stores = {
     [STORES.SELECTION_GRID]: SelectionGridModelFactory(),
@@ -91,6 +92,7 @@ export const MainView = () => {
                             <div className={'col-12'}>
                                 <h1>SELECT ITEMS</h1>
                                 <h1>{text}</h1>
+                                <TimerExample />
                                 <SelectionGrid/>
                                 <hr/>
                                 <h3>SELECTION</h3>
