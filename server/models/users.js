@@ -24,6 +24,10 @@ const buildUsersSchema = () => {
       type: String,
       required: true,
       unique: true
+    },
+    password: {
+      type: String,
+      required: true
     }
   }, {
     collection: DB_COLLECTION.USERS,

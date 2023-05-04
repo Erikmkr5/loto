@@ -32,10 +32,7 @@ export class DbConnection {
   create = (modelName, data) => {
     return new Script(
       () => this.getModel(modelName),
-      Model => {
-        console.log(Model);
-        return new Model(data).save()
-      },
+      Model => new Model(data).save(),
     ).run();
   };
 
@@ -48,7 +45,12 @@ export class DbConnection {
 
   update = () => {};
 
-  delete = () => {};
+  delete = (modelName, filter) => {
+    return new Script(
+      () => this.getModel(modelName),
+      Model => Model.findOneAndDelete(filter)
+    ).run();
+  };
 
   registerModel = (modelName, modelEntity) => {
     this._models[modelName] = modelEntity;

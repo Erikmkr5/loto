@@ -31,10 +31,10 @@ const initializeModel = (schema) => {
   return new mongoose.model(DB_MODEL.DRAW, schema);
 };
 
-export const createDrawsCollection = (dbConnection = null) => {
+export const createDrawsCollection = (db = null) => {
   return new Script(
     buildDrawsSchema,
     initializeModel,
-    Model => (dbConnection || global[GLOBALS.DB]).registerModel(DB_MODEL.DRAW, Model)
+    Model => (db || global[GLOBALS.DB]).registerModel(DB_MODEL.DRAW, Model)
   ).run();
 };

@@ -1,4 +1,6 @@
-import * as crypto from "crypto";
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import {ENV_VARIABLES} from './cnst.js';
 
 export const noop = () => {};
 
@@ -57,4 +59,17 @@ export const handleError = (err, res) => {
   res.status(err.status || 500).send({statusText: digOut(err, 'statusText') || digOut(err, 'text') || err});
 };
 
-export const getUid = () => crypto.randomUUID();
+export const getUid = () => bcrypt.genSaltSync();
+
+export const cloneObject = (d) => JSON.parse(JSON.stringify(d));
+
+export const createToken = (email) => {
+  const timestamp =  new Date().getTime();
+  const token = jwt.sign({email, timestamp}, ENV_VARIABLES.CRYPTO_KEY);
+
+  return {email, timestamp, token};
+};
+
+export const encryptPassword = (password, salt = 10) => bcrypt.hash(password, salt);
+
+export const checkPassword = (password, hash) => bcrypt.compareSync(password, hash);

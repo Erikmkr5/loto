@@ -9,9 +9,10 @@ import {TestRoute} from './routes/testRoutes.js';
 import {UsersRoute} from './routes/usersRoute.js';
 import {createDrawsCollection} from './models/lottery_draw.js';
 import {createUsersCollection} from './models/users.js';
+import {createSessionsCollection} from './models/session.js';
 
 const {HOST, PORT} = ENV_VARIABLES;
-const {APP, DB, SERVER} = GLOBALS;
+const {APP, DB, SERVER, AUTH} = GLOBALS;
 
 const createApplication = () => {
   return new Script(
@@ -38,6 +39,7 @@ const refreshCollections = () => {
     () => console.log('Refreshing Collections...'),
     createUsersCollection,
     createDrawsCollection,
+    createSessionsCollection,
     () => console.log('Collections ready\n')
   ).run();
 };
@@ -45,9 +47,9 @@ const refreshCollections = () => {
 const configureRoutes = () => {
   return new Script(
     () => console.log('Configuring routes...'),
-    new TestRoute(),
-    new DrawsRoute(),
-    new UsersRoute(),
+    () => global[AUTH] = new UsersRoute(),
+    () => new TestRoute(),
+    () => new DrawsRoute(),
     () => console.log('Routes configured successfully\n')
   ).run();
 };
