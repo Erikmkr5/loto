@@ -1,208 +1,207 @@
-// import {inject, observer} from "mobx-react";
-// import React, { useRef, useEffect } from 'react';
-// import * as d3 from 'd3';
-//
-// interface iProps {
-//     data: number[];
-//     width: number;
-//     height: number;
-//     margin?: {
-//         top: number;
-//         right: number;
-//         bottom: number;
-//         left: number;
-//     };
-// }
-//
-// const Histogram: React.FC<iProps> = ({ data, width, height, margin = { top: 10, right: 30, bottom: 30, left: 40 } }) => {
-//     const ref = useRef<SVGSVGElement | null>(null);
-//
-//     useEffect(() => {
-//         const svg = d3.select(ref.current);
-//
-//         const x = d3.scaleLinear()
-//             .domain([0, d3.max(data) as number])
-//             .range([0, width - margin.left - margin.right]);
-//
-//         const histogram = d3.histogram()
-//             .value(function(d) { return d; })
-//             .domain(x.domain() as [number, number])
-//             .thresholds(x.ticks(10));
-//
-//         const bins = histogram(data);
-//
-//         const y = d3.scaleLinear()
-//             .range([height - margin.top - margin.bottom, 0])
-//             .domain([0, d3.max(bins, function(d) { return d.length; }) as number]);
-//
-//         svg.select(".x-axis")
-//             .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
-//             .call(d3.axisBottom(x));
-//
-//         svg.select(".y-axis")
-//             .call(d3.axisLeft(y));
-//
-//         svg.selectAll(".bar")
-//             .data(bins)
-//             .join("rect")
-//             .attr("class", "bar")
-//             .attr("x", function(d) { return x(d.x0) + margin.left; })
-//             .attr("width", function(d) { return x(d.x1) - x(d.x0) - 1; })
-//             .attr("y", function(d) { return y(d.length) + margin.top; })
-//             .attr("height", function(d) { return height - margin.top - margin.bottom - y(d.length); })
-//             .style("fill", "steelblue");
-//     }, [data, height, margin.bottom, margin.left, margin.right, margin.top, width]);
-//
-//     return (
-//         <svg ref={ref} width={width} height={height}>
-//             <g className="x-axis" />
-//             <g className="y-axis" />
-//         </svg>
-//     );
-// };
-//
-//
-//
-//
-//
-// export const StatExample = observer((props) => {
-//
-//     const data = [10, 20, 30, 40, 50, 60, 70, 80, 90];
-//
-//     return (
-//         <div>
-//             <Histogram data={data} width={1000} height={400} />
-//         </div>
-//
-//
-//     );
-// });
-//
-import { inject, observer } from "mobx-react";
-import React, { useRef, useEffect } from "react";
-import * as d3 from "d3";
+import React, {useState} from "react";
+import Plot from 'react-plotly.js';
+import {inject, observer} from "mobx-react";
+import {SERVICES, STORES} from "../../Shared/enum";
+import {ApiService} from "../../Services/ApiService";
+import {IDrawModel} from "../../Shared/types";
+import './StatExample.scss'
 
-interface iProps {
-    data: number[];
-    width: number;
-    height: number;
-    margin?: {
-        top: number;
-        right: number;
-        bottom: number;
-        left: number;
+
+
+
+export const StatExample = inject(
+    STORES.DRAW,
+    SERVICES.API_SERVICE,
+    STORES.SELECTION_GRID
+)(observer((props) => {
+
+    const model = props[STORES.SELECTION_GRID];
+    const selection = model.selection;
+    const apiService: ApiService = props[SERVICES.API_SERVICE];
+    const draw: IDrawModel = props[STORES.DRAW];
+
+    const [lastDraw, setLastDraw] = useState([])
+    let [allDraws, setAllDraws] = useState([])
+
+    const createDraw = () => {
+        apiService.createDraw()
+            .then(({data}) => {
+                draw.uid = data.uid;
+            })
+            .catch(err => console.log(err));
     };
-}
 
-const Histogram: React.FC<iProps> = ({
-                                         data,
-                                         width,
-                                         height,
-                                         margin = { top: 10, right: 30, bottom: 30, left: 40 },
-                                     }) => {
-    const ref = useRef<SVGSVGElement | null>(null);
+    // const getDraws = () => {
+    //     apiService.getDraws()
+    //         .then(
+    //             (res) => {
+    //                 // console.log(res)
+    //                 const drawsLength = res.data.length - 1
+    //                 console.log(res.data[drawsLength].values)
+    //                 setLastDraw(res.data[drawsLength].values)
+    //                 // console.log(allDraws)
+    //             }
+    //         )
+    //         .catch(err => console.log(err));
+    // };
+    // const insertInDio = (number) => {
+    //     const tens = Math.floor(number / 10)
+    //     const ones = number % 10
+    //     data[0].z[tens][ones] += 1
+    //     console.log(data[0].z)
+    //
+    //     setData([...data]);
+    // }
 
-    useEffect(() => {
-        const svg = d3.select(ref.current);
+    const getDraws = () => {
+        apiService.getDraws()
+            .then(
+                (res) => {
+                    // console.log(res)
+                    const drawsLength = res.data.length - 1
+                    console.log(res.data)
+                    allDraws = res.data
+                    setAllDraws(res.data)
+                    console.log(allDraws)
+                    // console.log(drawsLength)
+                    for (let i = drawsLength - 100; i < drawsLength - 1; i++) {
+                        allDraws[i].values.forEach(insertInDio)
+                        console.log(allDraws[i].values)
+                    }
+                }
+            )
+            .catch(err => console.log(err));
+    };
 
-        const x = d3
-            .scaleLinear()
-            .domain([0, d3.max(data) as number])
-            .range([0, width - margin.left - margin.right]);
 
-        const histogram = d3
-            .histogram()
-            .value(function (d) {
-                return d;
-            })
-            .domain(x.domain() as [number, number])
-            .thresholds(x.ticks(10));
+    const insertInDio = (number) => {
 
-        const bins = histogram(data);
+        number-=1;
+        const tens = Math.floor(number / 10)
+        const ones = number % 10
+        data[0].z[tens][ones] += 1
+        console.log(data[0].z[tens][ones])
+        setData([...data]);
 
-        const y = d3
-            .scaleLinear()
-            .range([height - margin.top - margin.bottom, 0])
-            .domain([0, d3.max(bins, function (d) {
-                return d.length;
-            }) as number]);
+    }
 
-        svg.select(".x-axis")
-            .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
-            .call(
-                d3.axisBottom(x).tickSizeOuter(0).tickPadding(8).tickFormat(d3.format(""))
-            );
+    const Generate100Draws = () => {
+        for (let i = 0; i<10; i++) {
+            createDraw()
+            // getDraws()
+            // lastDraw.forEach(insertInDio)
 
-        svg.select(".y-axis")
-            .call(
-                d3.axisLeft(y).tickSizeInner(-(width - margin.left - margin.right)).tickPadding(8).tickFormat(d3.format(".2s"))
-            );
+        }
+        console.log(data[0].z)
+    }
 
-        svg.selectAll(".bar")
-            .data(bins)
-            .join("rect")
-            .attr("class", "bar")
-            .attr("x", function (d) {
-                return x(d.x0) + margin.left;
-            })
-            .attr("width", function (d) {
-                return x(d.x1) - x(d.x0) - 1;
-            })
-            .attr("y", function (d) {
-                return y(d.length) + margin.top;
-            })
-            .attr("height", function (d) {
-                return height - margin.top - margin.bottom - y(d.length);
-            })
-            .style("fill", "#006699");
-    }, [
-        data,
-        height,
-        margin.bottom,
-        margin.left,
-        margin.right,
-        margin.top,
-        width,
+    const xValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const yValues = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    const zValues = [
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+        [31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+        [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
+        [51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
+        [61, 62, 63, 64, 65, 66, 67, 68, 69, 70],
+        [71, 72, 73, 74, 75, 76, 77, 78, 79, 80],
+        [81, 82, 83, 84, 85, 86, 87, 88, 89, 90]
+    ]
+    const colorscaleValue = [
+        [0, '#d0c3cb'],
+        [10, '#e313b2']
+    ];
+
+    const [data, setData] = useState([
+        {
+            x: xValues,
+            y: yValues,
+            z: [
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            ],
+            type: 'heatmap',
+            colorscale: colorscaleValue,
+            showscale: true,
+            showgrid: true,
+
+        },
     ]);
 
-    return (
-        <svg ref={ref} width={width} height={height}>
-            <g className="x-axis" />
-            <g className="y-axis" />
-        </svg>
-    );
-};
+    const layout = {
+        title: 'My Heatmap',
+        annotations: [],
+        xaxis: {
+            title: {
+                text: 'ones'
+            },
+            tickvals: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        },
+        yaxis: {
+            range: [9, -1],
+            title: {
+                text: 'tens'
+            },
+            tickvals: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+            // tickvals: [0, 10, 20, 30, 40, 50, 60, 70, 80],
+            // ticktext: ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+            // scaleanchor: 'x'
+        }
+    };
 
-export const StatExample = observer((props) => {
-    const data = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+    for ( let i = 0; i < yValues.length; i++ ) {
+        for ( let j = 0; j < xValues.length; j++ ) {
+            const currentValue = zValues[i][j];
+            // if (currentValue != 0.0) {
+            //     const textColor = 'white';
+            // }else{
+            //     const textColor = 'black';
+            // }
+            const result = {
+                xref: 'x1',
+                yref: 'y1',
+                x: xValues[j],
+                y: yValues[i],
+                text: zValues[i][j],
+                font: {
+                    family: 'Arial',
+                    size: 12,
+                    color: 'rgb(14,66,197)'
+                },
+                showarrow: false,
+                // font: {
+                //     color: textColor
+                // }
+            };
+            layout.annotations.push(result);
+        }
+    }
 
-    return (
+
+
+    const MyHeatmap = () => {
+        return <Plot data={data} layout={layout} />;
+    };
+
+
+    return(
         <div>
-            <h1 style={{ textAlign: "center" }}>Histogram Example</h1>
-            <Histogram data={data} width={800} height={400} />
+            <MyHeatmap />
+            <button className='btn btn-success' onClick={Generate100Draws}>
+
+            </button>
+            <button className='btn btn-success' onClick={getDraws}>
+
+            </button>
+
         </div>
-    );
-});
-
-
-
-// import { inject, observer } from "mobx-react";
-// import React, { useRef, useEffect } from "react";
-// import * as d3 from "d3";
-//
-// export const StatExample = observer((props) => {
-//
-//     const data = [10, 20, 30, 40, 50, 60, 70, 80, 90];
-//
-//     const x = d3.scale.linear()
-//         .domain([0, d3.max(data)])
-//         .range([0,90])
-//     d3.select
-//
-//     return (
-//         <div>
-//             <h1 style={{ textAlign: "center" }}>Histogram Example</h1>
-//             {/*<Histogram data={data} width={800} height={400} />*/}
-//         </div>
-//     );
-// });
+    )
+}))
