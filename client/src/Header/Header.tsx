@@ -1,13 +1,12 @@
-
-
 import React from 'react';
 import './Header.scss'
-// import {ROUTES, STORES} from "../Shared/enum";
-import {STORES} from "../Shared/enum";
+import {SERVICES, STORES} from "../Shared/enum";
 import { inject, observer } from 'mobx-react';
 import {asClassList} from "../Shared/utils";
 import { TestModelFactory } from "../Factories";
-import { BiKey } from "react-icons/bi";
+import {AppUser} from "../Factories/UserModel";
+import {ApiService} from "../Services/ApiService";
+
 
 
 
@@ -15,38 +14,32 @@ interface HeaderProps {
     title: string;
 }
 
-const randomUser = {
-    'uid' : 1,
-    'name' : 'Erik',
-    'surname' : '12',
-    'age' : 12,
-    'email': '13ewd',
-    'password' : null
-}
+
 export const Header = inject(
     'appRoutes',
     STORES.USER_STORE,
-    STORES.TEST_STORE
+    STORES.TEST_STORE,
+    SERVICES.API_SERVICE
 
 )(observer((props) => {
     const {title, appRoutes, TestModel : model, UserStore } = props;
+    const apiService: ApiService = props[SERVICES.API_SERVICE];
 
 
-    console.log(appRoutes);
-    // console.log(props);
-    // console.log(model);
-
-
-    // const registered = {}
-
-    // function NotRegistered(){
-    //     return(
-    //         <button
-    //             className={'btn btn-link'}
-    //             onClick={() => appRoutes.goTo('authPage')}>AUTH</button>
-    //
-    //     )
-    // }
+    const logoutUser = () => {
+        const token = localStorage.getItem("token");
+        apiService.logoutUser(token)
+            .then(
+                (res) => {
+                    console.log(res)
+                })
+            .catch(err => console.log(err));
+    };
+    const logOut = () => {
+        UserStore.resetData()
+        logoutUser()
+        localStorage.removeItem('token');
+    }
 
 
     const classList = asClassList(['btn', UserStore.isAuthorized ? 'btn-success' : 'btn-danger']);
@@ -55,7 +48,7 @@ export const Header = inject(
     return (
         <nav>
             <header className="header">
-                <img onClick={() => appRoutes.goTo('home')} src="https://cdn1.iconfinder.com/data/icons/lottery-5/64/lotto_lottery_raffle_draw_scratching-512.png" className='logo'/>
+                <img onClick={() => appRoutes.goTo('home')} src="https://cdn1.iconfinder.com/data/icons/lottery-5/64/lotto_lottery_raffle_draw_scratching-512.png" className='logo' alt={'LOGO'}/>
                 <h1 className='title'>{title}</h1>
                 <div className='header-components'>
 
@@ -93,10 +86,10 @@ export const Header = inject(
                         <button
                             className={classList}
 
-                            onClick={() => UserStore.isAuthorized ? UserStore.resetData() : UserStore.setUserData(randomUser)}
+                            onClick={() => UserStore.isAuthorized ? logOut() : appRoutes.goTo('authPage')}
 
                         >
-                            <span>{ UserStore.isAuthorized ? 'Log out' : 'Log in'}</span>
+                            <span>{ UserStore.isAuthorized ? UserStore.name : 'Log in'}</span>
                         </button>
                         {/*<BiKey className='key'/>*/}
                     </div>

@@ -1,16 +1,53 @@
 import {inject, observer} from "mobx-react";
 import './LoginForm.scss';
 import {useState} from "react";
+import {SERVICES, STORES} from "../../Shared/enum";
+import {ApiService} from "../../Services/ApiService";
+import {AppUser} from "../../Factories/UserModel";
 
 
 export const RegForm = inject(
-    'appRoutes'
+    'appRoutes',
+    SERVICES.API_SERVICE,
+    STORES.USER_STORE
 )(observer(
     (props) => {
-
-        const {appRoutes} = props
-
+        const {appRoutes} = props;
         const isDisabled = false;
+        const apiService: ApiService = props[SERVICES.API_SERVICE];
+        const user: AppUser = props[STORES.USER_STORE];
+
+
+        const enterUserData = () => {
+            user.setUserData({
+                email: login,
+                password : password,
+                name : name,
+                surname : surname,
+                age : age
+            })
+        }
+
+
+        const createUser = () => {
+            enterUserData()
+            const { name, surname, age, email, password } = user;
+            apiService.createUser(name, surname, age, login, password)
+                .then(
+                    (res) => {
+                        console.log(res)
+                        const { token, _id } = res.data
+                        localStorage.setItem('token', token);
+                        // console.log(token);
+                        user.setUserData({
+                            uid: _id
+                        })
+                    }
+                )
+                .catch(err => console.log(err));
+        };
+
+
 
         const [ login, setLogin] = useState('');
         const handleLoginChange = (event) => {
@@ -29,11 +66,17 @@ export const RegForm = inject(
         const handleSurnameChange = (event) => {
             setSurname(event.target.value);
         };
+        const [ age, setAge] = useState('');
+        const handleAgeChange = (event) => {
+            setAge(event.target.value);
+        };
 
-        function handleForSumbit(event){
+        function handleForSubmit(event){
             event.preventDefault()
             if ( login === '' || password === '' || phoneNumber === '' || name === '' || surname === ''){
                 alert('enter all data')
+            } else {
+                createUser()
             }
         }
 
@@ -67,7 +110,7 @@ export const RegForm = inject(
                     type={"email"}
                     name={'login'}
                     disabled={isDisabled}
-                    placeholder={"Enter login"}
+                    placeholder={"Enter email(login)"}
                     onChange={ handleLoginChange }
                     value={ login }
                 />
@@ -104,6 +147,16 @@ export const RegForm = inject(
 
                 <input
                     className={'form-control'}
+                    type={"number"}
+                    name={'age'}
+                    disabled={isDisabled}
+                    placeholder={"Enter your age"}
+                    onChange={ handleAgeChange }
+                    value={ age }
+                />
+
+                <input
+                    className={'form-control'}
                     type={"text"}
                     name={'phoneNumber'}
                     disabled={isDisabled}
@@ -116,8 +169,8 @@ export const RegForm = inject(
 
                 <button
                     className='authSumbitBtn'
-                    onClick={handleForSumbit}
-                >log in</button>
+                    onClick={handleForSubmit}
+                >Sign up</button>
                 {/*    проверка на заполнение всех полей и по клику отправка форм на сервер*/}
 
                 <button

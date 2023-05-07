@@ -37,7 +37,9 @@
 }
 
 .authSumbitBtn {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 10px;
   background-color: #be2352;
@@ -52,9 +54,12 @@
 }
 
 
-.btn-link dont-have-account {
-  color: #0a56a6; /* цвет текста */
-  //width: 120px;
+.btn-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #c3d0de; /* цвет текста */
+  width: 430px;
   text-decoration: none; /* убираем подчеркивание ссылки */
   cursor: pointer; /* меняем курсор при наведении */
   margin-right: 0;

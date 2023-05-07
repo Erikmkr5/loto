@@ -38,7 +38,9 @@ import {STORES} from '../../Shared/enum';
 import {asClassList} from '../../Shared/utils';
 
 
-export const TestView = inject(STORES.TEST_STORE)(observer(
+export const TestView = inject(
+    STORES.TEST_STORE
+)(observer(
     (props) => {
         const model = props.TestModel;
         const classList = asClassList(['btn', model.value ? 'btn-success' : 'btn-danger']);

@@ -147,7 +147,13 @@ export class UsersRoute {
         return !user
           ? script.stop(SERVER_ERRORS.NON_EXISTS)
           : user;
-      }
+      },
+        user => {
+          user = {...cloneObject(user)};
+          delete user.password;
+
+          return user;
+        }
     );
 
 

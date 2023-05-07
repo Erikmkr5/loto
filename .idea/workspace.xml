@@ -6,7 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="0627ce21-dbf4-4961-a33e-ea60bb102fd4" name="Changes" comment="authform and registrdorm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/misc/cnst.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/misc/cnst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/LoginForm/AuthForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/LoginForm/AuthForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/LoginForm/LoginForm.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/LoginForm/LoginForm.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/LoginForm/RegForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/LoginForm/RegForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/SimpleExamples/TestView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/SimpleExamples/TestView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Components/Stats/StatExample.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/Stats/StatExample.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Factories/UserModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Factories/UserModel.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Header/Header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Header/Header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Pages/MainView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Pages/MainView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Services/ApiService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Services/ApiService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/usersRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/usersRoute.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,13 +60,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="Z:\OWN\loto\client\node_modules\typescript\lib" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "routing",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "C:\\Users\\mkrtc\\Documents\\GitHub\\loto\\client\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Z:\OWN\loto\client\src\Shared" />
@@ -98,6 +113,7 @@
       <workItem from="1683124864289" duration="1848000" />
       <workItem from="1683175111715" duration="14110000" />
       <workItem from="1683219647191" duration="1813000" />
+      <workItem from="1683385820733" duration="17850000" />
     </task>
     <task id="LOCAL-00001" summary="button input useState">
       <created>1681233977436</created>
@@ -143,13 +159,13 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="button input useState" />
     <MESSAGE value="authform and registrdorm" />
     <MESSAGE value="Header and routes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Header and routes" />
+    <MESSAGE value="timer and heatmap" />
+    <option name="LAST_COMMIT_MESSAGE" value="timer and heatmap" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

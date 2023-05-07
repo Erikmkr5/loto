@@ -26,7 +26,8 @@ export class AppUser {
     public surname: string = null;
     public age: number = null;
     public email: string = null;
-    private password: string = null;
+    // private password: string = null;
+    public password: string = null;
 
     @computed
     public get isAuthorized() : boolean {

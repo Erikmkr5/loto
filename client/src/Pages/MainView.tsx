@@ -67,15 +67,15 @@ import {ApiService} from '../Services/ApiService';
 import {useEffect, useState} from "react";
 import {TimerExample} from "../Components/Timer/TimerExample";
 
-const Stores = {
-    [STORES.SELECTION_GRID]: SelectionGridModelFactory(),
-    [STORES.TEST_STORE]: TestModelFactory(),
-    [STORES.DRAW]: DrawModelsFactory()
-}
+// const Stores = {
+//     [STORES.SELECTION_GRID]: SelectionGridModelFactory(),
+//     [STORES.TEST_STORE]: TestModelFactory(),
+//     [STORES.DRAW]: DrawModelsFactory()
+// }
 
-const Services = {
-    [SERVICES.API_SERVICE]: new ApiService()
-};
+// const Services = {
+//     [SERVICES.API_SERVICE]: new ApiService()
+// };
 
 
 export const MainView = () => {
@@ -86,12 +86,12 @@ export const MainView = () => {
     return (
         <div>
             <div className={'lotto-main'}>
-                <Provider {...Stores} {...Services}>
+                {/*<Provider {...Stores} {...Services}>*/}
                     <div className={'container'}>
                         <div className={'row'}>
                             <div className={'col-12'}>
                                 <h1>SELECT ITEMS</h1>
-                                <h1>{text}</h1>
+                                {/*<h1>{text}</h1>*/}
                                 <TimerExample />
                                 <SelectionGrid/>
                                 <hr/>
@@ -103,7 +103,7 @@ export const MainView = () => {
                             </div>
                         </div>
                     </div>
-                </Provider>
+                {/*</Provider>*/}
             </div>
         </div>
     )

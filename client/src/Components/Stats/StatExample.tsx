@@ -31,27 +31,6 @@ export const StatExample = inject(
             .catch(err => console.log(err));
     };
 
-    // const getDraws = () => {
-    //     apiService.getDraws()
-    //         .then(
-    //             (res) => {
-    //                 // console.log(res)
-    //                 const drawsLength = res.data.length - 1
-    //                 console.log(res.data[drawsLength].values)
-    //                 setLastDraw(res.data[drawsLength].values)
-    //                 // console.log(allDraws)
-    //             }
-    //         )
-    //         .catch(err => console.log(err));
-    // };
-    // const insertInDio = (number) => {
-    //     const tens = Math.floor(number / 10)
-    //     const ones = number % 10
-    //     data[0].z[tens][ones] += 1
-    //     console.log(data[0].z)
-    //
-    //     setData([...data]);
-    // }
 
     const getDraws = () => {
         apiService.getDraws()
@@ -60,11 +39,11 @@ export const StatExample = inject(
                     // console.log(res)
                     const drawsLength = res.data.length - 1
                     console.log(res.data)
-                    allDraws = res.data
+                    allDraws = res.data //!!!!
                     setAllDraws(res.data)
                     console.log(allDraws)
                     // console.log(drawsLength)
-                    for (let i = drawsLength - 100; i < drawsLength - 1; i++) {
+                    for (let i = drawsLength - 3; i < drawsLength + 1; i++) {
                         allDraws[i].values.forEach(insertInDio)
                         console.log(allDraws[i].values)
                     }
@@ -86,13 +65,13 @@ export const StatExample = inject(
     }
 
     const Generate100Draws = () => {
-        for (let i = 0; i<10; i++) {
+        for (let i = 0; i<4; i++) {
             createDraw()
             // getDraws()
             // lastDraw.forEach(insertInDio)
 
         }
-        console.log(data[0].z)
+        // console.log(data[0].z)
     }
 
     const xValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
