@@ -58,40 +58,32 @@
 // };
 
 
-import {Provider} from 'mobx-react';
 import {SelectionGrid, SelectionResults} from '../Components';
 import {TestView} from '../Components/SimpleExamples/TestView';
-import {SERVICES, STORES} from '../Shared/enum';
-import {SelectionGridModelFactory, TestModelFactory, DrawModelsFactory} from '../Factories';
-import {ApiService} from '../Services/ApiService';
-import {useEffect, useState} from "react";
 import {TimerExample} from "../Components/Timer/TimerExample";
-
-// const Stores = {
-//     [STORES.SELECTION_GRID]: SelectionGridModelFactory(),
-//     [STORES.TEST_STORE]: TestModelFactory(),
-//     [STORES.DRAW]: DrawModelsFactory()
-// }
-
-// const Services = {
-//     [SERVICES.API_SERVICE]: new ApiService()
-// };
+import {inject, observer} from "mobx-react";
+import {STORES} from "../Shared/enum";
+import {AppUser} from "../Factories/UserModel";
 
 
-export const MainView = () => {
 
+
+export const MainView = inject(
+    STORES.USER_STORE
+)(observer(props => {
+
+    const user: AppUser = props[STORES.USER_STORE];
     const text = 'MAIN PAGE'
-
-
-    return (
-        <div>
-            <div className={'lotto-main'}>
-                {/*<Provider {...Stores} {...Services}>*/}
+    if (!user.isAuthorized) {
+        return <h1 >To be able to play you have to log in first</h1>
+    } else {
+        return (
+            <div>
+                <div className={'lotto-main'}>
                     <div className={'container'}>
                         <div className={'row'}>
                             <div className={'col-12'}>
                                 <h1>SELECT ITEMS</h1>
-                                {/*<h1>{text}</h1>*/}
                                 <TimerExample />
                                 <SelectionGrid/>
                                 <hr/>
@@ -103,9 +95,13 @@ export const MainView = () => {
                             </div>
                         </div>
                     </div>
-                {/*</Provider>*/}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 
-};
+
+
+
+
+}))

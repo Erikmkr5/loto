@@ -172,14 +172,13 @@ export const StatExample = inject(
 
 
     return(
-        <div>
+        <div className="heatMap">
             <MyHeatmap />
-            <button className='btn btn-success' onClick={Generate100Draws}>
-
-            </button>
-            <button className='btn btn-success' onClick={getDraws}>
-
-            </button>
+            
+            <div className='buttons'>
+                <button onClick={Generate100Draws}>Do 4 draws</button>
+                <button onClick={getDraws}>Analyze</button>
+            </div>
 
         </div>
     )

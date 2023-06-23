@@ -31,8 +31,8 @@ export const RegForm = inject(
 
         const createUser = () => {
             enterUserData()
-            const { name, surname, age, email, password } = user;
-            apiService.createUser(name, surname, age, login, password)
+            const { name, surname, age, email , password } = user;
+            apiService.createUser(name, surname, age, email, password)
                 .then(
                     (res) => {
                         console.log(res)
@@ -73,10 +73,13 @@ export const RegForm = inject(
 
         function handleForSubmit(event){
             event.preventDefault()
-            if ( login === '' || password === '' || phoneNumber === '' || name === '' || surname === ''){
+            if ( login === '' || password === '' || phoneNumber === '' || name === '' || surname === '' || age === ''){
                 alert('enter all data')
+            } else if (parseInt(age) < 18){
+                alert('Too young')
             } else {
                 createUser()
+                appRoutes.goTo('home')
             }
         }
 
@@ -93,8 +96,10 @@ export const RegForm = inject(
                 setPhoneNumber(`${phone.substring(0, 1)} (${phone.substring(1, 4)}`);
             } else if (phone.length <= 7) { // форматируем телефон X (XXX) XXX
                 setPhoneNumber(`${phone.substring(0, 1)} (${phone.substring(1, 4)}) ${phone.substring(4, 7)}`);
+            } else if (phone.length <= 9){
+                setPhoneNumber(`${phone.substring(0, 1)} (${phone.substring(1, 4)}) ${phone.substring(4, 7)}-${phone.substring(7, 9)}`);
             } else {
-                setPhoneNumber(`${phone.substring(0, 1)} (${phone.substring(1, 4)}) ${phone.substring(4, 7)}-${phone.substring(7, 11)}`);
+                setPhoneNumber(`${phone.substring(0, 1)} (${phone.substring(1, 4)}) ${phone.substring(4, 7)}-${phone.substring(7, 9)}-${phone.substring(9, 11)}`);
             }
         }
 
@@ -104,7 +109,6 @@ export const RegForm = inject(
         return (
 
             <div className={'reg-form'}>
-
                 <input
                     className={'form-control'}
                     type={"email"}

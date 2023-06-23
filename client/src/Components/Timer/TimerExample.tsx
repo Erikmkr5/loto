@@ -59,17 +59,24 @@ export const TimerExample = inject(
 
 
     useEffect(() => {
+        const applyChanges = async () => {
+            await createDraw()
+            await getDraws()
+            await checkDraw()
+            setTimeLeft(2)
+        } 
+        
         const interval = setInterval(() => {
             isCounting&&
                 setTimeLeft((timeLeft) => (timeLeft >= 1 ? timeLeft -1 : 0))
         }, 1000)
         if (timeLeft === 0) {
             setIsCounting(false);
-            createDraw()
-            getDraws()
-            checkDraw()
-
-            setTimeLeft(2)
+            applyChanges()
+            // createDraw()
+            // getDraws()
+            // checkDraw()
+            // setTimeLeft(2)
 
         }
         return() => {

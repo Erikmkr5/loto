@@ -63,6 +63,7 @@ export const AuthForm = inject(
                 alert('enter all data')
             } else {
                 loginUser()
+                appRoutes.goTo('home')
             }
         }
 

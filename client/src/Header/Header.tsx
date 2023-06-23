@@ -4,7 +4,6 @@ import {SERVICES, STORES} from "../Shared/enum";
 import { inject, observer } from 'mobx-react';
 import {asClassList} from "../Shared/utils";
 import { TestModelFactory } from "../Factories";
-import {AppUser} from "../Factories/UserModel";
 import {ApiService} from "../Services/ApiService";
 
 
@@ -22,7 +21,7 @@ export const Header = inject(
     SERVICES.API_SERVICE
 
 )(observer((props) => {
-    const {title, appRoutes, TestModel : model, UserStore } = props;
+    const {title, appRoutes, TestModel : model, UserStore : user } = props;
     const apiService: ApiService = props[SERVICES.API_SERVICE];
 
 
@@ -36,13 +35,29 @@ export const Header = inject(
             .catch(err => console.log(err));
     };
     const logOut = () => {
-        UserStore.resetData()
+        user.resetData()
         logoutUser()
         localStorage.removeItem('token');
     }
 
+    const notLoggedIn = () => {
+        return (
+            <div>
+                <button
+                    className={'btn btn-link'}
+                    onClick={() => appRoutes.goTo('authPage')}
+                >AUTH</button>
 
-    const classList = asClassList(['btn', UserStore.isAuthorized ? 'btn-success' : 'btn-danger']);
+
+                {/*<button*/}
+                {/*    className={'btn btn-link'}*/}
+                {/*    onClick={() => appRoutes.goTo('regPage')}*/}
+                {/*>REG</button>*/}
+            </div>
+        )}
+
+
+    const classList = asClassList(['btn', user.isAuthorized ? 'btn-success' : 'btn-danger']);
 
 
     return (
@@ -59,16 +74,11 @@ export const Header = inject(
                     >MAIN</button>
 
                     {/*{NotRegistered()}*/}
-                    <button
-                        className={'btn btn-link'}
-                        onClick={() => appRoutes.goTo('authPage')}
-                    >AUTH</button>
+                    {/*{user.isAuthorized*/}
+                    {/*    ? ''*/}
+                    {/*    : notLoggedIn()*/}
+                    {/*}*/}
 
-
-                    <button
-                        className={'btn btn-link'}
-                        onClick={() => appRoutes.goTo('regPage')}
-                    >REG</button>
 
                     {/*{UserStore.isAuthorized ? '' : NotRegistered() }*/}
 
@@ -78,18 +88,14 @@ export const Header = inject(
                     >STATS</button>
 
 
-                    <button
-                      className={'btn btn-link'}
-                      onClick={() => appRoutes.goTo('withParams', {someId: Math.floor(Math.random() * 100)})}>WITH PARAMS</button>
-
                     <div className='authBtn'>
                         <button
                             className={classList}
 
-                            onClick={() => UserStore.isAuthorized ? logOut() : appRoutes.goTo('authPage')}
+                            onClick={() => user.isAuthorized ? logOut() : appRoutes.goTo('authPage')}
 
                         >
-                            <span>{ UserStore.isAuthorized ? UserStore.name : 'Log in'}</span>
+                            <span>{ user.isAuthorized ? 'Logout' : 'Login'}</span>
                         </button>
                         {/*<BiKey className='key'/>*/}
                     </div>
@@ -104,4 +110,3 @@ export const Header = inject(
         </nav>
     );
 }));
-

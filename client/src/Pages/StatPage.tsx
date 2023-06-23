@@ -1,37 +1,26 @@
 import React from "react";
 import {StatExample} from "../Components/Stats/StatExample";
-import {SERVICES, STORES} from "../Shared/enum";
-import {DrawModelsFactory, SelectionGridModelFactory, TestModelFactory} from "../Factories";
-import {ApiService} from "../Services/ApiService";
-import {Provider} from "mobx-react";
+import {STORES} from "../Shared/enum";
+import {inject, observer} from "mobx-react";
+import {AppUser} from "../Factories/UserModel";
 
 
-const Stores = {
-    [STORES.SELECTION_GRID]: SelectionGridModelFactory(),
-    [STORES.TEST_STORE]: TestModelFactory(),
-    [STORES.DRAW]: DrawModelsFactory()
-}
+export const StatPage = inject(
+    STORES.USER_STORE
+)(observer(props => {
 
-const Services = {
-    [SERVICES.API_SERVICE]: new ApiService()
-};
-
-
-export const StatPage = () => {
-
-
-
-
-
-
-    return(
-        <div>
-            <Provider {...Stores} {...Services}>
+    const user: AppUser = props[STORES.USER_STORE];
+    if (!user.isAuthorized) {
+        return <h1 >To be able to play you have to log in first</h1>
+    } else {
+        return(
+            <div>
                 <StatExample />
-            </Provider>
+            </div>
+        )
+    }
 
 
 
-        </div>
-    )
-}
+
+}))
